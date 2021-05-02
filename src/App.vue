@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
+// import ContextMenu from './components/contextMenu';
 import ContextMenu from '../dist/vue-context-menu.es';
 
 export default defineComponent({

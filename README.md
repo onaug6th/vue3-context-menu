@@ -1,5 +1,5 @@
-# vue-context-menu
-vue3 context-menu (context menu）
+# vue3-context-menu
+vue3 context-menu
 
 ##  example
 
@@ -11,7 +11,7 @@ vue3 context-menu (context menu）
 ```js
 import ContextMenu from 'contextMenu';
 
-{
+export default {
     methods: {
         contextMenu(event, yourData) {
             ContextMenu({

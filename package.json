@@ -1,5 +1,5 @@
 {
-  "name": "vue-context-menu",
+  "name": "@onaug6th/vue3-context-menu",
   "author": "onaug6th",
   "version": "0.0.1",
   "files": ["dist"],
