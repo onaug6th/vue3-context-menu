@@ -1,7 +1,7 @@
 {
   "name": "@onaug6th/vue3-context-menu",
   "author": "onaug6th",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/onaug6th/vue3-context-menu",
   "keywords": ["vue3", "context-menu"],
   "readmeFilename": "README.md",
