@@ -1,6 +1,5 @@
 import { createVNode, render, VNode } from "vue";
 import ContextMenuConstructor from "./index.vue";
-import { ComponentPublicInstance } from "vue";
 import {
   IRightMenu,
   IRightMenuOptions,

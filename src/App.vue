@@ -1,15 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" @contextmenu.prevent="contextMenu($event)" />
   <HelloWorld
-    msg="Hello Vue 3 + TypeScript + Vite"
+    msg="右键图标打开菜单"
   />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-// import ContextMenu from './components/contextMenu';
-import ContextMenu from '../dist/vue-context-menu.es';
 
 export default defineComponent({
   name: "App",
@@ -22,7 +20,8 @@ export default defineComponent({
      * @param event
      */
     contextMenu(event: MouseEvent) {
-      ContextMenu({
+      const that : any = this;
+      that.$contextMenu({
         event,
         list: [
           {

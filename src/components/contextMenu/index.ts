@@ -5,6 +5,4 @@ const install = (app: App): void => {
   app.config.globalProperties.$contextMenu = ContextMenu;
 };
 
-export default ContextMenu;
-
-export { install };
+export default { install };

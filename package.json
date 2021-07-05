@@ -1,16 +1,11 @@
 {
   "name": "@onaug6th/vue3-context-menu",
   "author": "onaug6th",
-  "version": "0.0.1",
-  "files": ["dist"],
-  "main": "./dist/context-menu.umd.js",
-  "module": "./dist/context-menu.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/context-menu.es.js",
-      "require": "./dist/context-menu.umd.js"
-    }
-  },
+  "version": "0.0.3",
+  "repository": "https://github.com/onaug6th/vue3-context-menu",
+  "keywords": ["vue3", "context-menu"],
+  "readmeFilename": "README.md",
+  "main": "dist/vue3-context-menu.umd.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
