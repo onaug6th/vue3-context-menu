@@ -7,12 +7,6 @@ import {
   IRightMenuParams,
 } from "./types";
 
-const PopupManager = {
-  nextZIndex() {
-    return 1;
-  },
-};
-
 let instance: IRightMenuHandle | null;
 
 const ContextMenu: IRightMenu = function (
@@ -23,20 +17,14 @@ const ContextMenu: IRightMenu = function (
     instance = null;
   }
 
-  let options: IRightMenuOptions = <IRightMenuOptions>opts;
-
-  options = {
-    ...options,
-    list: options.list,
-    zIndex: PopupManager.nextZIndex(),
-  };
+  let options: IRightMenuOptions = <IRightMenuOptions>Object.assign({ zIndex: 1 }, opts);
 
   const container = document.createElement("div");
 
   const vm: VNode = createVNode(ContextMenuConstructor, options);
 
   render(vm, container);
-  document.body.appendChild(container.firstElementChild as any);
+  document.body.appendChild(container.firstElementChild as Element);
 
   if (vm.props) {
     //  回收内存
@@ -53,6 +41,6 @@ const ContextMenu: IRightMenu = function (
   };
 
   return instance;
-} as any;
+};
 
 export default ContextMenu;

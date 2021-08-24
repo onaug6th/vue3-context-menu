@@ -27,13 +27,13 @@ export default defineComponent({
           {
             text: "打开便笺",
             handler() {
-              console.info("打开便笺");
+              alert("打开便笺");
             },
           },
           {
             text: "删除便笺",
             handler() {
-              console.info("删除便笺");
+              alert("删除便笺");
             },
           },
         ],

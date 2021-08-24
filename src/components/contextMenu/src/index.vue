@@ -1,5 +1,5 @@
 <template>
-  <div class="context-menu" ref="contextMenu" v-clickoutside="close">
+  <div ref="contextMenu" v-clickoutside="close" :style="{ zIndex }" class="context-menu">
     <div v-for="(menuItem, menuIndex) in list" class="menu-item" :key="menuIndex" @click="menuClick(menuItem)">
       <span>{{ menuItem.text }}</span>
     </div>
@@ -15,7 +15,7 @@ export default defineComponent({
   directives: {
     clickoutside: {
       beforeMount(el, binding) {
-        el.handler = (e: any) => {
+        el.handler = (e: Event) => {
           if (el.contains(e.target)) {
             return false;
           }
@@ -41,19 +41,26 @@ export default defineComponent({
     onClose: {
       type: Function as PropType<() => void>
     },
-    zIndex: { type: Number, default: 0 }
+    zIndex: { type: Number, default: 1 }
   },
   emits: ['destroy'],
   setup(props, { emit }) {
+    //  ref
     let contextMenu: Ref<HTMLDivElement | null> = ref(null);
 
+    /**
+     * 显示菜单
+     */
     function show() {
       setPosition();
     }
 
+    /**
+     * 设置菜单位置
+     */
     function setPosition() {
       const { clientX: x, clientY: y } = props.event;
-      let menu: any = contextMenu.value;
+      let menu = contextMenu.value as HTMLDivElement;
 
       menu.style.left = '-9999px';
       menu.style.top = '-9999px';
@@ -63,12 +70,12 @@ export default defineComponent({
         let menuWidth = menu.offsetWidth;
         //  菜单高度
         let menuHeight = menu.offsetHeight;
-        //  容器宽度，减去内边距20像素
-        let clientWidth = document.documentElement.clientWidth - 20;
-        //  容器高度，减去内边距20像素
-        let clientHeight = document.documentElement.clientHeight - 20;
+        //  页面宽度
+        let clientWidth = document.documentElement.clientWidth;
+        //  页面高度
+        let clientHeight = document.documentElement.clientHeight;
 
-        // 初始值
+        //  初始值
         let _x = x;
         let _y = y;
 
@@ -86,11 +93,18 @@ export default defineComponent({
       });
     }
 
+    /**
+     * 菜单项点击
+     * @param { IRightMenuListItem } menuItem
+     */
     function menuClick(menuItem: IRightMenuListItem) {
       menuItem.handler();
       close();
     }
 
+    /**
+     * 菜单关闭
+     */
     function close() {
       emit('destroy');
     }

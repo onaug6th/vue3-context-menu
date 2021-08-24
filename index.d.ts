@@ -1,4 +1,5 @@
 import { App } from "vue";
+import { IRightMenuOptions } from "./src/components/contextMenu/src/types"
 
 declare module 'vue3-context-menu' {
 }
@@ -6,10 +7,9 @@ declare module 'vue3-context-menu' {
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
     /**
-     * Show a ContextMenu .
-     * @param options The options of this ContextMenu
+     * @param options
      */
-    $contextmenu: (options : any) => void;
+    $contextmenu: (options : IRightMenuOptions) => void;
   }
 }
 
